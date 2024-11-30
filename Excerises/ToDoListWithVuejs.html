@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata and page settings -->
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive layout on mobile devices -->
+    <title>Document</title> <!-- Sets the title of the webpage -->
+
+    <!-- Load Vue.js library from a CDN -->
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+</head>
+<body>
+  <!-- Main Vue app container -->
+  <div id="App">
+    <h1>My TodoList</h1> <!-- Title of the to-do list application -->
+
+    <!-- Input field bound to the Vue.js data property 'newTask' using v-model -->
+    <input type="text" id="newTask" v-model="newTask">
+
+    <!-- Button that triggers the addItem method when clicked using v-on:click -->
+    <button id="addButton" v-on:click="addItem">add</button> <!-- Corrected 'addIem' to 'addItem' -->
+
+    <!-- Unordered list to display the tasks -->
+    <ul id="taskList"></ul>
+  </div>
+  
+  <!-- Vue.js application script -->
+  <script>
+    // Create a new Vue.js instance and assign it to the variable 'app'
+    let app = new Vue({
+        // Mount the Vue instance to the HTML element with the id 'App'
+        el: '#App',
+
+        // Define the reactive data properties used in the Vue instance
+        data: { 
+            newTask: '' // Stores the value of the new task entered by the user
+        },
+
+        // Define methods that can be triggered by events in the Vue instance
+        methods: {
+            // Method to add a new task item to the list
+            addItem: function() {
+                // Create a new <li> element for the task item
+                let newItem = document.createElement('li');
+
+                // Set the text of the <li> element to the value of 'newTask'
+                newItem.innerText = app.newTask;
+
+                // Append the new task item to the task list (<ul> element)
+                document.getElementById('taskList').appendChild(newItem);
+
+                // Clear the input field by resetting the 'newTask' data property
+                app.newTask = '';
+            }
+        }
+    })
+  </script>
+</body>
+</html>

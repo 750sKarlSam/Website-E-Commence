@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+
+
+    <script src="cartfunction.js"></script> 
+    <link rel="stylesheet" href="style4.css">
+
+
+
+    <title>Wild Dogs Store</title>
+</head>
+<body>
+    <div id="app">
+        <header>
+        <h1 v-text="Dogsite"></h1>
+        </header>
+        <h2>Wild Dogs App</h2>
+        <main> 
+            <img src="imagesforCart/rottweiler-puppy-for-sale-may-2023-hary-001.jpg">
+
+            <figure>
+                <img v-bind:src="product.imagesforCart">
+            </figure>
+            <h1 v-text="product.title"></h1>
+            <p v-text="product.description"></p>
+            <p>Price: {{product.price}}</p>
+
+            <input type="button" value="Add to Cart" v-on:click="addItemToCart"/>
+            </main>
+            </div>
+
+            
+
+
+
+            <product-item v-for="dog in dogs" :key="dog.id" :dog="dog" @add-to-cart="addToCart"/> 
+        </div>
+</body>
+</html>

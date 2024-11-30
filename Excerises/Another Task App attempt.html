@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metadata and page settings -->
+    <meta charset="UTF-8"> <!-- Sets character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive layout on mobile devices -->
+    <title>Document</title> <!-- Sets the title of the webpage -->
+</head>
+<body>
+
+<!-- Main container for the app -->
+<div id="App">
+    <h1>My Todo List</h1> <!-- Title of the to-do list -->
+
+    <!-- Input field and button for adding new tasks -->
+    <input type="text" id="newTask"> <!-- Input field for the user to enter new tasks -->
+    <button id="addButton">add</button> <!-- Button to trigger adding new tasks -->
+
+    <!-- Unordered list to display the tasks -->
+    <ul id="tasklist">
+        <li>Task</li> <!-- Example task item in the list -->
+        <li>Task</li> <!-- Example task item in the list -->
+        <li>Task</li> <!-- Example task item in the list -->
+    </ul>
+</div>
+
+<!-- JavaScript code to handle adding new tasks -->
+<script>
+    // Reference to the "add" button element
+    let addButton = document.getElementById("addButton");
+
+    // Reference to the unordered list element where new tasks will be added
+    let taskList = document.getElementById("tasklist"); // Corrected from "taskLit" to "tasklist"
+
+    // Set an event listener on the "add" button
+    addButton.onclick = function() {
+        // Reference to the input field where the user types the new task
+        let taskField = document.getElementById("newTask");
+
+        // Create a new <li> element for the task
+        let taskItem = document.createElement("li");
+
+        // Set the inner text of the new <li> element to the value entered in the input field
+        taskItem.innerText = taskField.value;
+
+        // Append the new task item to the list of tasks
+        taskList.appendChild(taskItem);
+
+        // Clear the input field after adding the task
+        taskField.value = "";
+    }
+</script>
+
+</body>
+</html>

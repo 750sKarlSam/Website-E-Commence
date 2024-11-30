@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Calculator</title>
+</head>
+<body>
+
+    <div id="Calculator"></div>
+    <h2>JS Calculator</h2>
+
+    
+        <br>
+        <button id="x">x</button>
+        <br>
+        <button id="y">y</button>
+        <br>
+        <br>
+
+<input id="display" readonly>
+    
+</body>
+</html>
