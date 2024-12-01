@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+
+    <title>MyAfterSchoolClub</title>
+</head>
+<body>
+    <div id="app">
+    <input id="inp4" type="text">
+
+    <header>
+        <h1 v-text="sitename"></h1> 
+        
+        <button>
+            {{ itemsInTheCart }}
+            <span class="fa-solid fa-cart-shopping"></span>
+            Checkout
+            </button>
+            
+    </header>
+
+    <main>
+        <figure>
+            <img v-bind:src="product.image" alt="This is an item of the English Language Product">
+            </figure>
+
+            <h1 v-text="product.title"></h1>
+            <p v-text="product.description"></p>
+            <p>Price: {{product.price}}</p>
+<!--v-show can be used-->
+            <input type="button" value="Add to the Cart" 
+            v-on:click="addItemToTheCart" v-if="canAddToTheCart"/>
+            <input type="button" value="Add to the Cart" disabled="disabled"
+            v-else/>
+           
+
+    </main>
+            <!--method is where you call the method so by your actions -->
+            <!--computed is what vue.js does from the inside to make sure your request is delivered-->
+    <!-- {{myVariable}} -->
+</div>
+    <script>
+        let webstore = new Vue({
+            el: "#app",
+            data: {
+                myVariable: "ok",
+                sitename: "AfterSchoolClub",
+                product: {
+                    id: 1001,
+                    title: "Subject: English Language",
+                    description: "This subject is based on learning the English Language.",
+                    price: 2000,
+                    image: "images/EnglishIcon.png",
+                    location:"London",
+                    availableInventory: 5
+                },
+                cart: []
+            },
+
+            methods: {
+                addItemToTheCart: function() {
+                    this.cart.push(this.product.id);
+                }
+            },
+             
+            computed: {
+                itemsInTheCart: function() {
+                   return this.cart.length || "";
+                },
+                canAddToTheCart: function() {
+                     return this.product.availableInventory > this.itemsInTheCart
+                }
+            }
+        })
+    </script>
+</body>
+</html>
