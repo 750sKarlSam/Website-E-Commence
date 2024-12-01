@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+    <title>MyAfterSchoolClub</title>
+</head>
+<body>
+    <div id="app">
+    <input id="inp4" type="text">
+
+    <header>
+        <h1 v-text="sitename"></h1>
+    </header>
+
+    <main>
+        <figure>
+            <img v-bind:src="product.image" alt="This is an item of the English Language Product">
+            <h2 v-text="product.title"></h2>
+            <p v-text="product.description"></p>
+            <p>Price: {{product.price}}</p>
+        </figure>
+
+
+
+    </main>
+
+    <!-- {{myVariable}} -->
+</div>
+    <script>
+        let webstore = new Vue({
+            el: "#app",
+            data: {
+                myVariable: "ok",
+                sitename: "AfterSchoolClub",
+                product: {
+                    id: 1001,
+                    title: "Subject: English Language",
+                    description: "This subject is based on learning the English Language.",
+                    price: 2000,
+                    image: "images/EnglishIcon.png",
+                    location:"London",
+                }
+            }
+        })
+    </script>
+</body>
+</html>
